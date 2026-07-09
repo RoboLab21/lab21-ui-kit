@@ -1,0 +1,13 @@
+:host {
+  display: block;
+}
+
+.tabs {
+  border-bottom: 1px solid var(--lab21-border, #636363);
+  display: flex;
+  gap: 4px;
+}
+
+.content {
+  padding-top: 12px;
+}

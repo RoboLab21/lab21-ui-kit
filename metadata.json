@@ -1,0 +1,6 @@
+{
+  "name": "Lab21 UI Kit",
+  "description": "A UI kit for Lab21 interfaces and websites",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

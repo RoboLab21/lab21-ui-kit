@@ -1,0 +1,44 @@
+:host {
+  display: block;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.row {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  gap: 10px;
+}
+
+.dot {
+  align-items: center;
+  background: var(--lab21-dark, #2a2a2a);
+  border: 2px solid var(--lab21-border, #636363);
+  border-radius: 50%;
+  display: inline-flex;
+  height: 20px;
+  justify-content: center;
+  width: 20px;
+}
+
+.dot.checked {
+  border-color: var(--lab21-accent, #ff6b00);
+}
+
+.inner {
+  background: var(--lab21-accent, #ff6b00);
+  border-radius: 50%;
+  height: 10px;
+  width: 10px;
+}
+
+.label {
+  color: var(--lab21-foreground, #f5f5f5);
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 13px;
+}

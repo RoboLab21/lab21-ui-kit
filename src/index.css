@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-lab-bg: #3d3d3d;
+  --color-lab-surface: #4a4a4a;
+  --color-lab-surface-hover: #545454;
+  --color-lab-dark: #2a2a2a;
+  --color-lab-orange: #ff6b00;
+  --color-lab-orange-hover: #e56000;
+  --color-lab-orange-light: #ff8533;
+  --color-lab-light: #f5f5f5;
+  --color-lab-gray: #a3a3a3;
+  --color-lab-border: #636363;
+}
+
+body {
+  @apply bg-lab-bg text-lab-light font-sans antialiased;
+  min-height: 100vh;
+}
+
+lab21-button,
+lab21-card {
+  font-family: inherit;
+}
+
+/* Custom Chamfered Corners inspired by the Lab21 logo */
+.chamfer-brand {
+  /* Top-left: square, Top-right: chamfer, Bottom-right: square, Bottom-left: chamfer */
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+}
+
+.chamfer-brand-sm {
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+
+.chamfer-all {
+  clip-path: polygon(12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px), 0 12px);
+}
+
+.chamfer-all-sm {
+  clip-path: polygon(6px 0, calc(100% - 6px) 0, 100% 6px, 100% calc(100% - 6px), calc(100% - 6px) 100%, 6px 100%, 0 calc(100% - 6px), 0 6px);
+}
+
+.border-chamfer-brand {
+  position: relative;
+}
+
+.border-chamfer-brand::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-lab-border);
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+  z-index: -1;
+}
+
+.border-chamfer-brand > * {
+  margin: 2px;
+  background: var(--color-lab-surface);
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+  height: calc(100% - 4px);
+}
+
+/* Custom Input Styles (Date, Time, Color) */
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  clip-path: polygon(4px 0, calc(100% - 4px) 0, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 0 calc(100% - 4px), 0 4px);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.6) sepia(1) saturate(5) hue-rotate(350deg);
+  cursor: pointer;
+}
+
+/* Custom Slider */
+.lab-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+.lab-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  background: var(--color-lab-orange);
+  cursor: pointer;
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+  margin-top: -8px; /* Centers thumb on the track */
+}
+.lab-slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: var(--color-lab-border);
+}
+.lab-slider:focus::-webkit-slider-thumb {
+  background: var(--color-lab-orange-light);
+}

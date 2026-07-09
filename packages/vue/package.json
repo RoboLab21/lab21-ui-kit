@@ -1,0 +1,22 @@
+{
+  "name": "@lab21/vue",
+  "version": "1.0.0",
+  "private": false,
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "peerDependencies": {
+    "vue": "^3.5.0"
+  },
+  "dependencies": {
+    "@lab21/core": "^1.0.0",
+    "@stencil/vue-output-target": "^0.14.0"
+  },
+  "scripts": {
+    "build": "tsc"
+  }
+}

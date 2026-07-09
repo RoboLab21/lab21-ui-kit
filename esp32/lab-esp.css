@@ -1,0 +1,54 @@
+/* Lab21 Micro CSS for ESP32/STM32 */
+:root {
+  --bg: #3d3d3d;
+  --surface: #4a4a4a;
+  --dark: #2a2a2a;
+  --orange: #ff6b00;
+  --border: #636363;
+  --text: #f5f5f5;
+  --gray: #a3a3a3;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  padding: 16px;
+}
+h2, h3 { margin-top: 0; }
+.text-mono { font-family: monospace; }
+.text-orange { color: var(--orange); }
+.text-gray { color: var(--gray); font-size: 12px; }
+.grid { display: grid; gap: 16px; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 16px;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+}
+.btn {
+  background: var(--orange);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+}
+.btn-outline {
+  background: transparent;
+  color: var(--orange);
+  border: 2px solid var(--orange);
+}
+.data-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: var(--dark);
+  border: 1px solid var(--border);
+  margin-top: 8px;
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+}

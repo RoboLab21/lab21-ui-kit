@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab21 Embedded Dashboard</title>
+    <!-- INJECT_CSS -->
+    <!-- Alpine.js for lightweight embedded reactivity (< 15kb gzip) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+    <!-- Alpine.js state holding telemetry data -->
+    <div x-data="{ 
+        telemetry: { temp: 42, battery: 87, lidar: 'ACTIVE' }, 
+        navMode: 'AUTO',
+        toggleMode() { this.navMode = this.navMode === 'AUTO' ? 'MANUAL' : 'AUTO' }
+    }">
+        <h2 style="text-transform: uppercase; margin-bottom: 24px;">Lab21 <span class="text-orange">ESP32 Core</span></h2>
+
+        <div class="grid">
+            <div class="card">
+                <h3 style="text-transform: uppercase; margin-bottom: 16px;">Telemetry</h3>
+                <div class="data-row">
+                    <span class="text-mono text-gray">Core Temp</span>
+                    <span class="text-mono text-orange" x-text="telemetry.temp + ' °C'"></span>
+                </div>
+                <div class="data-row">
+                    <span class="text-mono text-gray">Power Bank</span>
+                    <span class="text-mono text-orange" x-text="telemetry.battery + ' %'"></span>
+                </div>
+                <div class="data-row">
+                    <span class="text-mono text-gray">Lidar Status</span>
+                    <span class="text-mono text-orange" x-text="telemetry.lidar"></span>
+                </div>
+                
+                <button class="btn" style="margin-top: 16px; width: 100%;" @click="telemetry.temp = Math.floor(Math.random() * 20) + 30">
+                    Poll Sensors
+                </button>
+            </div>
+
+            <div class="card">
+                <h3 style="text-transform: uppercase; margin-bottom: 16px;">Navigation Override</h3>
+                <div class="data-row">
+                    <span class="text-mono text-gray">Current Mode</span>
+                    <span class="text-mono text-orange" x-text="navMode"></span>
+                </div>
+                <button 
+                    class="btn" 
+                    :class="navMode === 'MANUAL' ? 'btn-outline' : ''"
+                    style="margin-top: 16px; width: 100%;" 
+                    @click="toggleMode()"
+                    x-text="navMode === 'AUTO' ? 'ENGAGE MANUAL' : 'RESTORE AUTO'">
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
