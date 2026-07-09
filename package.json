@@ -13,7 +13,7 @@
     "build:core": "npm run build --workspace @lab21/core",
     "build:wrappers": "npm run build --workspace @lab21/react && npm run build --workspace @lab21/vue",
     "clean": "rm -rf dist server.js packages/*/dist packages/*/loader",
-    "lint": "tsc --noEmit"
+    "lint": "npm run build:core && npm run build:wrappers && tsc --noEmit"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.14",
